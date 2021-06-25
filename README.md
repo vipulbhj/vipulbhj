@@ -11,8 +11,8 @@
     <a href="https://twitter.com/vipulbhj" target="blank">
       <img align="center" src="https://static.cdnlogo.com/logos/t/96/twitter-icon.svg" alt="@vipulbhj on Twitter" height="30" width="40" />
     </a>
-    <a href="https://instagram.com/vipulbhj" target="blank">
-      <img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/instagram.svg" alt="vipulbhj" height="30" width="40" />
+    <a href=https://www.linkedin.com/in/vipulbhj" target="blank">
+      <img align="center" src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="@vipulbhj on LinkedIn" height="30" width="40" />
     </a>
   </p>
   <p>
