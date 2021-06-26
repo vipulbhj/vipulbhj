@@ -18,7 +18,7 @@
 
 <h3 align="left">Talks</h3>
 <ul>
-  <li><a href="https://youtu.be/ugO5IcVBGxc?t=4320" />Journey Into Feature Hacking</li>
+  <li>Presented at Reactify Banglore #13, <a href="https://youtu.be/ugO5IcVBGxc?t=4320">Journey Into Feature Hacking</a>, <a href="https://github.com/vipulbhj/reactify13-meetup-talk">source code here</a></li>
 </ul>
 
 <h3 align="left">Stats</h3>
