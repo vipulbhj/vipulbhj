@@ -15,14 +15,16 @@
     <img align="center" src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="@vipulbhj on LinkedIn" height="30" width="30" />
   </a>
 </p>
+
+<h3 align="left">Talks</h3>
+<ul>
+  <li><a href="https://youtu.be/ugO5IcVBGxc?t=4320" />Journey Into Feature Hacking</li>
+</ul>
+
+<h3 align="left">Stats</h3>
 <p>
   <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=vipulbhj&show_icons=true&locale=en&layout=compact" alt="vipulbhj" />
 </p>
 <p>
   <img align="center" src="https://github-readme-stats.vercel.app/api?username=vipulbhj&show_icons=true&locale=en" alt="vipulbhj" />
 </p>
-
-<h3 align="left">Talks</h3>
-<ul>
-  <li><a href="https://youtu.be/ugO5IcVBGxc?t=4320" />Journey Into Feature Hacking</li>
-</ul>
