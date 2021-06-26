@@ -8,7 +8,7 @@
 
 <h3 align="left">Talks</h3>
 <ul>
-  <li>Presented at Reactify Banglore #13, <a href="https://youtu.be/ugO5IcVBGxc?t=4320">Journey Into Feature Hacking</a>, <a href="https://github.com/vipulbhj/reactify13-meetup-talk">source code here</a></li>
+  <li>Presented at Reactify#13, titled <a href="https://youtu.be/ugO5IcVBGxc?t=4320">Journey Into Feature Hacking</a>, source code available <a href="https://github.com/vipulbhj/reactify13-meetup-talk">here</a></li>
 </ul>
 
 <h3 align="left">Me on Web:</h3>
