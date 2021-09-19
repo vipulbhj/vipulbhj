@@ -1,10 +1,10 @@
 <h1 align="center">Hi 👋, I'm Vipul</h1>
 <h3 align="center">Senior Software Engineer <a href="https://geekyants.com/">@Geekyants</a></h3>
 
-- I like Programming Languages, Programmign Paradigms, Abstractions and breaking them, Design Patterns and that sort of thing.
-- I sometimes write about code using jokes(not sure if they are funny though).
-- Love to build teams and workflows for a fun work expericence.
-- I teach Javascript, React, sometimes Haskell and ML also.
+- I like Programming Languages, Programming Paradigms, Design Patterns, and that sort of thing.
+- Tech talks include a lot of jokes(not sure if they are funny though).
+- Love to build teams and workflows for a fullfilling working expericence.
+- I love to talk and teach about Javascript, Haskell, Python, Ruby, ReactJS, etc.
 
 <h3 align="left">Talks</h3>
 <ul>
