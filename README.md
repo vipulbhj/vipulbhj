@@ -3,8 +3,8 @@
 
 - I like Programming Languages, Programming Paradigms, Design Patterns, and that sort of thing.
 - Tech talks include a lot of jokes(not sure if they are funny though).
-- Love to build teams and workflows for a fullfilling working expericence.
-- I love to talk and teach about Javascript, Haskell, Python, Ruby, ReactJS, etc.
+- Love to build teams and workflows for a enjoyable working expericence.
+- Endlessly talking and teach about Javascript, Haskell, Python, Ruby, ReactJS, etc.
 
 <h3 align="left">Talks</h3>
 <ul>
