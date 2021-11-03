@@ -14,10 +14,10 @@
 
 <h3 align="left">Me on the web:</h3>
 <a href="https://twitter.com/vipulbhj" target="blank">
-  <img src="https://img.shields.io/badge/Twitter-007ACC?style=for-the-badge&logo=twitter&logoColor=white" alt="@vipulbhj on Twitter" />
+  <img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" alt="@vipulbhj on Twitter" />
 </a>
 <a href="https://www.linkedin.com/in/vipulbhj" target="blank">
-  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="@vipulbhj on LinkedIn" /> 
+  <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="@vipulbhj on LinkedIn" /> 
 </a>
 
 <h3 align="left">Stats</h3>
