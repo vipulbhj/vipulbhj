@@ -12,12 +12,12 @@
  <li>Presented at React & React Native Remote Meetup | September 2021, titled <a href="https://youtu.be/v13fju8L-Q8?t=1451">Utility Props in NativeBase</a>, link to <a href="https://github.com/vipulbhj/vipulbhj/blob/main/UtilityProps.pdf">Slides</a></li>
 </ul>
 
-<h3 align="left">Me on Web:</h3>
+<h3 align="left">Me on the web:</h3>
 <a href="https://twitter.com/vipulbhj" target="blank">
   <img align="center" src="https://static.cdnlogo.com/logos/t/96/twitter-icon.svg" alt="@vipulbhj on Twitter" height="30" width="40" />
 </a>
 <a href="https://www.linkedin.com/in/vipulbhj" target="blank">
-  <img align="center" src="https://image.flaticon.com/icons/png/512/174/174857.png" alt="@vipulbhj on LinkedIn" height="30" width="30" />
+  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /> 
 </a>
 
 <h3 align="left">Stats</h3>
