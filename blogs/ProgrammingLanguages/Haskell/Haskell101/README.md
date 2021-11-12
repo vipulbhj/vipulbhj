@@ -1,3 +1,5 @@
+# Content in Draft / Early preview, if you find any issues pretend you didn't see them.
+
 # Haskell 101: A glance
 
 ## Introduction
@@ -103,3 +105,7 @@ findSum num = sum $ take num [1..]
 What's happening here is, we are creating an Infinite list, using the range syntax, `[1..]`, if you wanted to create a list of the first 6 natural numbers, you can just say `[1..6]` and since in our case we haven't specified any upper bound, the list keeps increasing Infinitely and laziness ensures the program does go crazy.
 
 Next, we use the `take` function to take the first `n` number of items out of a list. For example, `take 3 [1, 2, 3, 4, 5]` will result in `[1, 2, 3]`, then we use another built-in function called `sum`, which sums up all elements in a list. Combine all these and you have yourself a clean one-line implementation, now tell me that ain't pretty.
+
+Laziness isn't just limited to creating infinite collections, but it turn out, its great for compiler optimizations as well. laziness gives `Haskell` compilers the power of arbritrary restructuring code at compilation time, very cool 😛😛.
+
+And that's about it I guess 😅😅😅
