@@ -1,5 +1,3 @@
-# WORK IN PROGRESS
-
 # Haskell 101
 
 ## Introduction
@@ -18,33 +16,67 @@ If you plan to try some of the examples, I would highly recommend setting up `Ha
 
 **`Can't I just using an online compiler ??`**
 
-Well, in theory sure, if you google, you can find some options, I have used [haskell replit](https://replit.com/languages/haskell) in the past, **_but_**(and "a big fat `but`, as far as `but's` go") there is a problem, you see currently, you are an `Haskell` baby, all you know is to cry, but these `REPL` environments are designed for grownups. And if I were to take you from a baby to grownup, we will have to talk about, what `purely functional` really means, and how all `IO` is impure and then I will have to tell you about how `Haskell` ended up going around that issue using the explict `IO Monad` and they you will ask what a `Monad` is, and then I will say, "whatever you want it to be" while simultaneously being something "no one really understands, we all just pretent" and then we will have to talk about that thing and then that thing and after a while, we reach stuff, even I don't understand and by then you will have a serious headache and man on man, a serious headache can cause permanent brain damage to a baby, so no I ain't taking that risk, just setup the f\*\*king thing on your machine locally.
+Well, in theory sure, if you google, you can find some options, I have used [haskell replit](https://replit.com/languages/haskell) in the past, **_but_**(and "a big fat `but`, as far as `but's` go") there is a problem, you see currently you are a `Haskell` baby, all you know is and do is cry, but these `REPL` environments are designed for grownups. And if I were to take you from a baby to grownup, we will have to talk about, what `purely functional` really means, and how all `IO` is always impure by design and then I will have to tell you about how `Haskell` ended up going around that issue using the explict `IO Monad`, but then you will ask what a `Monad` is, and then I will say, "whatever you want it to be" while simultaneously being something "no one really understands, we all just pretent" and then we will have to talk about "that thing" and then "that other thing" and after a while, we reach stuff, even I don't understand and by then you will have a serious headache and man oh man, a serious headache can cause permanent brain damage to a baby, so no I ain't taking that risk, just setup the f\*\*king thing on your machine locally.
 
-<!-- ## Let's learn the half I understand
+## A quick overview
 
-`Haskell` is a purely functional language, which is a just a fancy way of saying, no classes, no objects, functions can be passed around just like data.
+### `Haskell` is `general-purpose`
 
-Here is an example,
+Can be used to build applications of all sort, there is no specific domain which the language was designed for. `DSLs`(Domain Specific Languages) like `SQL` are examples of some languages which were designed to only solve problems of a smaller, restrictive use-case, but there is nothing like that in `Haskell`.
+
+Also randomly, `--` in `Haskell` is single line comment, while `{--}` create multiline comments.
 
 ```haskell
-findMax :: (Num a) => (a -> a -> a) -> a -> a -> a
-findMax f a b = f a b
+-- This is a single line comment
+
+{-
+I am
+multiline comment
+-}
 ```
 
-![Result](./example_one.png)
+### `Haskell` is `purely functional`
 
-There is a lot going on in this example, and you will learn all these things as we go along, but for now just focus on the last line. We have a function called `findMax`, which takes a function `f` as its argument, which demonstrates the behavious.
+which implies functions can't have [side effect](<https://en.wikipedia.org/wiki/Side_effect_(computer_science)>), or think of them as more like functions in `Mathematics`, they take an input and produce an output. You can apply rules which govern what can be a possible input and what can be a possible output, just like in `maths` refering to the `Domain` and `Range` of a function, and for any given input, the function will product the exact same output **_always_**.
 
-`findMax max 10 20` used the inbuild function called `max` to find the bigger number of two passed as arguments.
+There are no `classes`, `objects`, `references`, `pointers`, `mutable-variables`, none of that and so almost all you know as an `OOPS` [btch](./definations.md#foo) goes out of the windom.
 
-Functions like `findMax` are sometimes also refered to as `Higher Order Functions`, which just means a function that either takes another function as argument or returns a function as its result, and if you are coming to this article with experience in one of the modern programming languages like `Javascript`, `Python`, etc, you have already seem functions accepting other functions as arguments, think of your `map`, `filter`, `reduce`, although functions returing other functions is a rare sight. But in `Haskell`, functions return other functions all the time and is a very important aspect of the language.
+The function syntax in `Haskell` is very easy, lets see a few examples
 
-### Your first program, or two 😛😛
+```haskell
+-- Function called `addTwoNumbers` takes two numbers and returns the result of addition.
+addTwoNumbers a b = a + b
 
-If you don't have the `Haskell` compiler installed already, I would recommend using the [Online Haskell REPL](https://replit.com/languages/haskell).
+-- Function called `multiplyTwoNumbers` takes two numbers and returns the result of multiplication.
+multiplyTwoNumbers a b = a * b
+```
 
-When you open the repl, you are greeted with the mandatory `helloworld` example, which is just printing the string using the inbuilt `putStrLn`.
+Hope that gave you a bit of intutition, I know it wasn't much but I don't think this can be taught in a flyby overview writeup, so I recommend reading [here](http://learnyouahaskell.com/syntax-in-functions).
 
-`main = putStrLn "Hello, World!"` print "Hello, World!" to the screen.
+### `Haskell` is `statically typed`
 
-Let's move on and define some variables, **Oppsie**, `Haskell` doesn't have those, happy to disappoint. `Haskell` doesn't have variables because all values are immutable, so you can't change any value once assign it to a name. There are some other nerdy details here, but we can ignore those. -->
+You can specify types for things in `Haskell`, but its kinds optional, till you have that case where it isn't, but very rare to have that case. This optional behaviour is thanks to `Haskells type inference` system, which is **chef's kiss**.
+
+lets look at some exmaples
+
+```haskell
+-- You can add types to constants
+intTypeValuesOnly :: Int
+intTypeValuesOnly = 10    -- (ok)
+intTypeValuesOnly = 6.212 -- (bad, gives error, see image below)
+
+-- You can add types to functions
+addTwoInts :: Int -> Int -> Int
+addTwoInts a b = a + b
+
+addTwoInts 10 20  -- 30
+addTwoInts 5.2 10 -- error similar to example above.
+```
+
+![results of the above code execution in ghci](./error_one.png)
+
+Hope that all was pretty straigh forward, if you wanna learn more about the available types, you can read at [http://learnyouahaskell.com/types-and-typeclasses](http://learnyouahaskell.com/types-and-typeclasses)
+
+### `Haskell` has `lazy evaluation`
+
+This one is interesting and a key differenciating factor between `Haskell` and some of the other functional programming languages. Lazy evaluation basically means, `Haskell` won't execute some code, untill it needs to use its output, say for printing it to the stdout or something.
