@@ -1,5 +1,3 @@
-# Content in Draft / Early preview, if you find any issues pretend you didn't see them.
-
 # Haskell 101: A glance
 
 ## Introduction
@@ -20,7 +18,7 @@ If you plan to try some of the examples, I would highly recommend setting up `Ha
 
 Well, in theory sure, if you google, you can find some options, I have used [Haskell replit](https://replit.com/languages/haskell) in the past, **_but_**(and "a big fat `but`, as far as `but's` go") there is a problem, you see currently you are a `Haskell` baby, all you know is and do is cry, but these `REPL` environments are designed for grownups. And if I were to take you from a baby to grownup, we will have to talk about, what `purely functional` really means, and how `IO` is always impure by design, and then I will have to tell you about how `Haskell` ended up going around that issue using `IO Monad`, but then you will ask what a `Monad` is, and then I will say, "whatever you want it to be" while simultaneously being something "no one really understands, we all just pretend" and then we will have to talk about "that thing" and then "that other thing" and after a while, we reach stuff, even I don't understand and by then you will have a serious headache and man oh man, a serious headache can cause permanent brain damage to a baby, so no I ain't taking that risk, just set up the f\*\*king thing on your machine locally.
 
-## A quick overview
+## An incomplete walkthrough
 
 ### `Haskell` is `general-purpose`
 
