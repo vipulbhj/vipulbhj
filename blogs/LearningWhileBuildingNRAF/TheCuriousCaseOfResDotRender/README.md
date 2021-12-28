@@ -31,8 +31,6 @@ Despite being a creature of the multiverse, and existing in so many forms, it ha
 
 `res.render` is a function that takes one argument, some sort of name, which repersents some static content, for our concerns, `HTML`, and sends back that as response to client requests.
 
-<br />
-
 # What's so curious about it?
 
 When I was thinking about adding template rendering support in [NRAF](https://github.com/vipulbhj/nraf), a very interesting question popped up.
@@ -209,8 +207,6 @@ So, the smart people who wrote the `express` framework, noticed a key detail abo
 And that's exactly what they do, they removed each level of depth from the absolute path, and look for this folder called `views` and whenever they find it, `BINGO`.
 
 I genuinely laughed for five minutes straights after I saw that error, only the few rare times I laughed after seeing an error :p (>\_<)
-
-<br />
 
 # How I am going to implement it in [NRAF](https://github.com/vipulbhj/nraf)
 
