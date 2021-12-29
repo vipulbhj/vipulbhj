@@ -9,6 +9,7 @@
 <h3 align="left">Articles</h3>
 
 - [Haskell 101: A glance](./blogs/ProgrammingLanguages/Haskell/Haskell101/README.md)
+- [The Curious case of res.render](./blogs/LearningsWhileBuildingNRAF/TheCuriousCaseOfResDotRender/README.md)
 
 <h3 align="left">Tech Talks</h3>
 <ul>

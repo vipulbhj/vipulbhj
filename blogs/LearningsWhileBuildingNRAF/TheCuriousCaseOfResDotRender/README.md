@@ -37,7 +37,7 @@ Despite being a creature of the multiverse, and existing in so many forms, it ha
 
 When I was thinking about adding template rendering support in [NRAF](https://github.com/vipulbhj/nraf), a very interesting question popped up.
 
-How would I, as a library author, know where does the template exist in the user's project? Sure, I can ask them to tell me an absolute path to that file, but other frameworks like `express` support defaults without asking the user to provide any.
+How would I, as a library author, know where does the template exist in the user's project? Sure, I can ask them to tell me an absolute path to that file, but other frameworks like `Express` support defaults without asking the user to provide any.
 
 And so I wondered,
 
@@ -59,25 +59,42 @@ Moreover, it just didn't feel right, so I decided to dive into `ExpressJS` sourc
 
 ## Finding the secret sauce
 
-I had some prior experience with the ExpressJS source code, because, in the super early days of [NRAF](https://github.com/vipulbhj/nraf), I looked in there for inspiration as well as, validation of my ideas and sometimes just pure learning.
+In the super early days of [NRAF](https://github.com/vipulbhj/nraf) development, I often refered to `Express` source code for "inspiration", "validation of my ideas" and sometimes just pure learning. With that, I had some prior experience and familarity with the source code which helped in finding things quickly.
 
-Being familiar with the project structure, I straight away started looking for how they were handing defaults paths for rendering templates.
+> The good thing with the source code of `Express` is, it's not huge and overly complicated by fancy build tools, so it's approachable to people of all experience levels.
 
-> The good thing with the source code of express is, it's not huge and overly complicated by fancy build tools, so it's approachable to people of all experience levels.
+I initially started by looking at what [default settings](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/application.js#L70) which are used when you initialized an app.
 
-I initially started by looking at what [default settings](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/application.js#L70) are used when you initialized an app.
+```js
+app.defaultConfiguration = function defaultConfiguration() {
+  var env = process.env.NODE_ENV || 'development';
 
-[Inside the initalization function, we see this.](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/application.js#L115)
+  // default settings
+  this.enable('x-powered-by');
+  this.set('etag', 'weak');
+  this.set('env', env);
+  this.set('query parser', 'extended');
+  this.set('subdomain offset', 2);
+  this.set('trust proxy', false);
 
-`this.set('views', resolve('views'));`
+  ...
+  ...
 
-which indicates, it looks for a folder called `views`, which is expected to have the templates.
+  // default configuration
+  this.set('view', View);
+  this.set('views', resolve('views'));
 
-This is a documented default, so no surprises thus far.
+  ...
+  ...
 
-But the question remains, how does it even know where to look for the folder.
+};
+```
 
-Next, lets look at the `resolve` function.
+Notice the call to [this.set('views', resolve('views'));](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/application.js#L115)
+
+This function is responsible for telling `Express`, where it will find the templates, so I expected the second argument to be some sort a path, but it's a call to `resolve` function.
+
+This means, the resolve function is responsible for finding the path to folder, where we will find the templates. Below is the defination of `resolve` function.
 
 ```js
 View.prototype.resolve = function resolve(dir, file) {
@@ -103,11 +120,11 @@ View.prototype.resolve = function resolve(dir, file) {
 
 What, how, wait, huh !!
 
-I expected this function to do something related to finding the `views` folder, but it doesn't, all it does, is check if the given path is a file or a directory and accordingly return a new path, joining the two.
+I expected this function to do something related to finding the `views` folder, but it's doing nothing like that. It just checks if the given path is a file or a directory and accordingly return a new path, joining the two.
 
-This was strange, and at this point I got really confused, I expected to see something very clear on how they location the absolute path of your project, but it seems like they don't and just magically know somehow.
+This was strange, and at this point I got really confused, I expected to see something very clear on how they location the absolute path of your project, but it seems like they don't set it explicitly and just magically know somehow.
 
-After that I was just browsing random files in the project, to find some more hints on how they do it when I suddenly noticed this [lookup](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/view.js#L104) function.
+After that, I was just browsing through files in the project, to find some more hints on how to find the path, when I noticed the [lookup](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/view.js#L104) function.
 
 ```js
 View.prototype.lookup = function lookup(name) {
@@ -132,9 +149,7 @@ View.prototype.lookup = function lookup(name) {
 };
 ```
 
-I had already gone past this `roots` variable thingy a few times already, and while it seemed important, I didn't understand what it was, but then it suddenly hit me, `roots`, it's named `roots`.
-
-So, I quickly opened up my terminal and starter typing.
+I figured this was something important, but didn't understand what it was doing precisely. I was about to start putting in some break points in the function defination, when I suddenly noticed, the variable `roots`. That gave an idea on what this function might be doing, so I quickly opened up my terminal and started bootstraping a small project to experiment and validate the idea.
 
 ```bash
 cd /tmp
@@ -145,7 +160,7 @@ yarn add express ejs
 vim index.js
 ```
 
-At this point I had an express project initialized, then I created an endpoint to test my hypothesis.
+At this point I had an `Express` project initialized, then I created an endpoint to test the hypothesis.
 
 ```js
 const express = require("express");
@@ -161,7 +176,7 @@ app.listen(PORT);
 
 What this should do is, use the defaults and look for a folder called `views` in my project and render a file called `home.ejs`.
 
-But there is no `views` folder in my project folder.
+But there is no `views` folder in the project folder.
 
 ```
 node_modules/
@@ -170,7 +185,7 @@ node_modules/
 index.js
 ```
 
-But what if, I add a views folder outside my project folder. And so I made one.
+I though what if, I add a views folder outside my project.
 
 ```bash
 cd ..
@@ -185,26 +200,24 @@ and added a `hello.ejs` like in it.
 <h1>Hello World from Views outside the project folder</h1>
 ```
 
-Then I navigated back into the project folder and executed the code.
+After which I started the `Express` server
 
 ```bash
 cd express-experiment
 node index.js
 ```
 
-open my browser, went to `http://localhost:3000`, and there it was
+and went to `http://localhost:3000`, and there it was, just as I had expected. An ERROR, precisely the one I expected.
 
 ![Permissions Error](./error.png)
-
-just as I had expected.
 
 ## So, what just happened?
 
 Well people, we found what makes the magic trick tick, and it's so clever, I am still giggling about it, but yet so obvious, I feel a little dumb I didn't see it before.
 
-So, how does `express` know, where to find your `views` folder. Well, it doesn't know, but it knows all the possible places it might be at.
+So, how does `Express` know, where to find your `views` folder. Well, it doesn't know, but it knows all the possible places it might be at.
 
-So, the smart people who wrote the `express` framework, noticed a key detail about how your dependencies are stored inside your projects. The `node_modules` folder is part of the project itself, which means any dependencies you install, will be installed as a subfolder in your project, which inturn means, this `views` folder that we are looking for has to be somewhere in this chain.
+The smart people who wrote the `Express` framework, noticed a key detail about how your dependencies are stored inside your projects. The `node_modules` folder is part of the project itself, which means any dependencies you install, will be installed as a subfolder in your project, which inturn means, this `views` folder that we are looking for has to be somewhere in this chain.
 
 And that's exactly what they do, they removed each level of depth from the absolute path, and look for this folder called `views` and whenever they find it, `BINGO`.
 
@@ -229,12 +242,10 @@ learning/
 
 I know it's a bit of a stretched of imagination, but in this case, if you forget to add a `views` folder to your project, it will starts rending files from the `views` folder, some level higher up the path, which might endup causing a lot of confusion and become a frustrating problem.
 
-The probability of this happening to someone who is just starting is very realistic, and so to avoid all this, [NRAF](https://github.com/vipulbhj/nraf) will require you to tell the path of your template folder explicitly, which is optional in `express`.
+The probability of this happening to someone who is just starting is very realistic, and so to avoid all this, [NRAF](https://github.com/vipulbhj/nraf) will require you to tell the path of your template folder explicitly, which is optional in `Express`.
 
-We will use a syntax similar to how you can do it in express, using `app.set('views', path.join(__dirname, 'views'));`, but would be a mandatory thing to do, and if you forget, it will show you a nice error message telling you what you need to do :p
+We will use a syntax similar to how you can do it in `Express`, using `app.set('views', path.join(__dirname, 'views'));`, but would be a mandatory thing to do, and if you forget, it will show you a nice error message telling you what you need to do :p
 
 _And that's about it, thank you so much for reading my brain dump. Hope it wasn't all blabbering._
 
-_**If you wanna talk further about anything, open an issue, or leave a star on [NRAF](https://github.com/vipulbhj/nraf), maybe :)**_
-
-Until next time. Peace
+_If you wanna talk about anything, open an issue, or **leave a star on [NRAF](https://github.com/vipulbhj/nraf), maybe :)**_
