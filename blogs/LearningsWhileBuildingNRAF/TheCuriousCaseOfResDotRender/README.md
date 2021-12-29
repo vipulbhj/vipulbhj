@@ -19,7 +19,7 @@ def index
 end
 ```
 
-If you like yourself some `ExpressJS(Node)`, you may finally know it in the form we are addressing it, the infamous `res.render`.
+If you like yourself some `ExpressJS(Node)`, you may know it in the form we are addressing it, the infamous `res.render`.
 
 ```javascript
 app.get("/", function (req, res) {
@@ -29,9 +29,9 @@ app.get("/", function (req, res) {
 
 Despite being a creature of the multiverse, and existing in so many forms, it has a relatively simple definition.
 
-`res.render` is a function that takes one argument, some sort of name, which repersents some static content, for our concerns, `HTML`, and sends back that as response to client requests.
+`res.render` is a function that takes one argument, some sort of name, which represents some static content, for our concerns, `HTML`, and sends back that as response to client requests.
 
-# What's so curious about it?
+## What's so curious about it?
 
 When I was thinking about adding template rendering support in [NRAF](https://github.com/vipulbhj/nraf), a very interesting question popped up.
 
@@ -47,21 +47,17 @@ And I had seen them all, `the Pledge`, `the Turn` and `the Prestige`, accepted t
 
 As my first instinct was to somehow find the path of the file which called `render`, I started by googling ["how to find the path of a file which called some function"](https://www.google.com/search?q=how+to+find+the+path+of+a+file+which+called+some+function), which to my surprise let to some legit [information](https://stackoverflow.com/questions/13227489/how-can-one-get-the-file-path-of-the-caller-function-in-node-js).
 
-While this is "a way" of hacking together a solution, this just didn't seem right.
-
-This would be extremely bad for performance, and shouts `HACK-IST` from a distance.
-
-Moreover, it just didn't feel right, so I decided to dive into `ExpressJS` source code and find how they are doing it.
+While this is "a way" of hacking together a solution, this just didn't seem right. This would be extremely bad for performance, and shouts `HACK-IST` from a distance. Moreover, it just didn't feel right, so I decided to dive into `ExpressJS` source code and find how they are doing it.
 
 **P.S: _Thank you open source._**
 
 ## Finding the secret sauce
 
-In the super early days of [NRAF](https://github.com/vipulbhj/nraf) development, I often refered to `Express` source code for "inspiration", "validation of my ideas" and sometimes just pure learning. With that, I had some prior experience and familarity with the source code which helped in finding things quickly.
+In the super early days of [NRAF](https://github.com/vipulbhj/nraf) development, I often referred to `Express` source code for "inspiration", "validation of my ideas" and sometimes just pure learning. With that, I had some prior experience and familiarity with the source code which helped in finding things quickly.
 
 > The good thing with the source code of `Express` is, it's not huge and overly complicated by fancy build tools, so it's approachable to people of all experience levels.
 
-I initially started by looking at what [default settings](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/application.js#L70) which are used when you initialized an app.
+I initially started by looking at what [default settings](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/application.js#L70) which are used when you initialised an app.
 
 ```js
 app.defaultConfiguration = function defaultConfiguration() {
@@ -90,9 +86,9 @@ app.defaultConfiguration = function defaultConfiguration() {
 
 Notice the call to [this.set('views', resolve('views'));](https://github.com/expressjs/express/blob/ea537d907d61dc693587fd41aab024e9df2e14b1/lib/application.js#L115)
 
-This function is responsible for telling `Express`, where it will find the templates, so I expected the second argument to be some sort a path, but it's a call to `resolve` function.
+This function is responsible for telling `Express`, where it will find the templates, so I expected the second argument to be some sort a path, but it's a call to the `resolve` function.
 
-This means, the resolve function is responsible for finding the path to folder, where we will find the templates. Below is the defination of `resolve` function.
+This means, the resolve function is responsible for finding the path to folder, where we will find the templates. Below is the definition of `resolve` function.
 
 ```js
 View.prototype.resolve = function resolve(dir, file) {
@@ -147,7 +143,7 @@ View.prototype.lookup = function lookup(name) {
 };
 ```
 
-I figured this was something important, but didn't understand what it was doing precisely. I was about to start putting in some break points in the function defination, when I suddenly noticed, the variable `roots`. That gave an idea on what this function might be doing, so I quickly opened up my terminal and started bootstraping a small project to experiment and validate the idea.
+I figured this was something important, but didn't understand what it was doing precisely. I was about to start putting in some break points in the function definition, when I suddenly noticed, the variable `roots`. That gave an idea on what this function might be doing, so I quickly opened up my terminal and started bootstrapping a small project to experiment and validate the idea.
 
 ```bash
 cd /tmp
@@ -158,7 +154,7 @@ yarn add express ejs
 vim index.js
 ```
 
-At this point I had an `Express` project initialized, then I created an endpoint to test the hypothesis.
+At this point I had an `Express` project initialised, then I created an endpoint to test the hypothesis.
 
 ```js
 const express = require("express");
@@ -205,7 +201,7 @@ cd express-experiment
 node index.js
 ```
 
-and went to `http://localhost:3000`, and there it was, just as I had expected. An ERROR, precisely the one I expected.
+and opened `http://localhost:3000` in the browser, and there it was, just as I had expected. An ERROR, precisely the one I expected.
 
 ![Permissions Error](./error.png)
 
@@ -215,7 +211,7 @@ Well people, we found what makes the magic trick tick, and it's so clever, I am 
 
 So, how does `Express` know, where to find your `views` folder. Well, it doesn't know, but it knows all the possible places it might be at.
 
-The smart people who wrote the `Express` framework, noticed a key detail about how your dependencies are stored inside your projects. The `node_modules` folder is part of the project itself, which means any dependencies you install, will be installed as a subfolder in your project, which inturn means, this `views` folder that we are looking for has to be somewhere in this chain.
+The smart people who wrote the `Express` framework, noticed a key detail about how your dependencies are stored inside your projects. The `node_modules` folder is part of the project itself, which means any dependencies you install, will be installed as a subfolder in your project, which in-turn means, this `views` folder that we are looking for has to be somewhere in this chain.
 
 And that's exactly what they do, they removed each level of depth from the absolute path, and look for this folder called `views` and whenever they find it, `BINGO`.
 
@@ -236,7 +232,7 @@ learning/
       index.js
 ```
 
-I know it's a bit of a stretched of imagination, but in this case, if you forget to add a `views` folder to your project, it will starts rending files from the `views` folder, some level higher up the path, which might endup causing a lot of confusion and become a frustrating problem.
+I know it's a bit of a stretched of imagination, but in this case, if you forget to add a `views` folder to your project, it will starts rending files from the `views` folder, some level higher up the path, which might end up causing a lot of confusion and become a frustrating problem.
 
 The probability of this happening to someone who is just starting is very realistic, and so to avoid all this, [NRAF](https://github.com/vipulbhj/nraf) will require you to tell the path of your template folder explicitly, which is optional in `Express`.
 
