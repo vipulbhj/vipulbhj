@@ -11,8 +11,9 @@
 - [Haskell 101: A glance](./blogs/ProgrammingLanguages/Haskell/Haskell101/README.md)
 - [The Curious case of res.render](./blogs/LearningsWhileBuildingNRAF/TheCuriousCaseOfResDotRender/README.md)
 
-<h3 align="left">Tech Talks</h3>
+<h3 align="left">Tech Talks and Workshops</h3>
 <ul>
+  <li>Workshop: <a href="https://youtu.be/Clfkd-U3MFI">Building a Twittter Spaces Clone with NativeBase and 100ms.</li>
   <li>Presented at Reactify#13, titled <a href="https://youtu.be/ugO5IcVBGxc?t=4320">Journey Into Feature Hacking</a>, source code available <a href="https://github.com/vipulbhj/reactify13-meetup-talk">here</a></li>
  <li>Presented at React & React Native Remote Meetup | September 2021, titled <a href="https://youtu.be/v13fju8L-Q8?t=1451">Utility Props in NativeBase</a>, link to <a href="https://github.com/vipulbhj/vipulbhj/blob/main/UtilityProps.pdf">Slides</a></li>
 </ul>
