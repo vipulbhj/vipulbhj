@@ -1,5 +1,5 @@
 <h1 align="center">Hi 👋, I'm Vipul</h1>
-<h3 align="center">Senior Software Engineer <a href="https://geekyants.com/">@Geekyants</a></h3>
+<h3 align="center">I do Software Stuff</h3>
 
 - I like Programming Languages, Programming Paradigms, Design Patterns, and that sort of thing.
 - Tech talks include a lot of jokes(not sure if they are funny though).
