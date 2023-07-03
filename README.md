@@ -2,7 +2,7 @@
 
 I program computer [for fun and profit](https://mitpress.mit.edu/9780262036474/for-fun-and-profit/)
 
-<h4>About me</h4>
+<h4>About me (Non exhaustive list)</h4>
 
 - I like talking about programming languages and paradigms.
 	- I write a ton with `Ruby` (love the meta programming), `Typescript` (for profit 😂). `Racket` is where I wrote a lot of my `lisp`, tiny bits of `clojure`. Haskell fanboy. P.S: `F#` > `OCaml`.
