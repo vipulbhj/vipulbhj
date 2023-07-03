@@ -9,15 +9,17 @@ I program computer [for fun and profit](https://mitpress.mit.edu/9780262036474/f
 - My tech talks include a lot of jokes (not sure if they are funny though).
 
 <h4>Socials links</h4>
-<a href="https://twitter.com/vipulbhj" target="_blank">
-  <img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" alt="@vipulbhj on Twitter" />
-</a>
-
-<a href="https://www.linkedin.com/in/vipulbhj" target="_blank">
-  <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="@vipulbhj on LinkedIn" />
+<div style="display:flex; flex-direction: row; gap: 10px; align-items: center;">
+  <a href="https://twitter.com/vipulbhj" target="_blank">
+    <img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" alt="@vipulbhj on Twitter" />
   </a>
-  
-  <a href="https://topmate.io/vipulbhj"><img height="20" src="https://topmate.io/images/common/topmate-light.svg" alt="Connect on Topmate" /></a>
+
+  <a href="https://www.linkedin.com/in/vipulbhj" target="_blank">
+    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="@vipulbhj on LinkedIn" />
+  </a>
+
+  <a href="https://topmate.io/vipulbhj"><img style="padding: 4px 10px; background: floralwhite;" height="20" src="https://topmate.io/images/common/topmate-light.svg" alt="Connect on Topmate" /></a>
+</div>
 
 <h4>Writing</h4>
 
