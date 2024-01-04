@@ -1,6 +1,6 @@
 <h3>Hi 👋, I'm Vipul</h3>
 
-I program computers [for fun and profit](https://mitpress.mit.edu/9780262036474/for-fun-and-profit/)
+I program computers [for fun and profit](https://fsharpforfunandprofit.com/)
 
 <h4>About me (Non exhaustive list)</h4>
 
