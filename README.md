@@ -18,7 +18,7 @@ I programme computers [for fun and profit](https://fsharpforfunandprofit.com/).
 <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="@vipulbhj on LinkedIn" />
 </a>
 
-[Gratitude: "Whatever I know, I know because someone taught it to me"](./gratitude.md)
+
 
 <h4>Writing</h4>
 
