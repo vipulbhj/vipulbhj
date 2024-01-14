@@ -1,14 +1,15 @@
-<h3>Hi 👋, I'm Vipul</h3>
+<h3>Hi 👋, I'm Vipul.</h3>
 
-I program computers [for fun and profit](https://fsharpforfunandprofit.com/)
+I programme computers [for fun and profit](https://fsharpforfunandprofit.com/).
 
-<h4>About me (Non exhaustive list)</h4>
+<h4>About me (a non-exhaustive list)</h4>
 
 - I like talking about programming languages and paradigms.
-	- I write a ton with `Ruby` (love the meta programming), `Typescript` (for profit 😂). `Racket` is where I wrote a lot of my `lisp`, tiny bits of `clojure`. Haskell fanboy. P.S: `F#` > `OCaml`.
-- My tech talks include a lot of jokes (not sure if they are funny though).
+	- I enjoy `Ruby` for fun (love the meta programming) and `Typescript` for profit 😂.
+ 	- Explored `lisp` with `Racket` and sprinkles of `Clojure` in-between.
+  	- `Haskell` fanboy. P.S.: `F#` > `OCaml`(is this what people call a hot take??)
+- Fascinated by people and stories, simple ideals and their complexities.
 
-<h4>Socials links</h4>
 <a href="https://twitter.com/vipulbhj" target="_blank">
 <img src="https://img.shields.io/badge/twitter-%231DA1F2.svg?&style=for-the-badge&logo=twitter&logoColor=white" alt="@vipulbhj on Twitter" />
 </a>
@@ -16,6 +17,8 @@ I program computers [for fun and profit](https://fsharpforfunandprofit.com/)
 <a href="https://www.linkedin.com/in/vipulbhj" target="_blank">
 <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" alt="@vipulbhj on LinkedIn" />
 </a>
+
+[Gratitude: "Whatever I know, I know because someone taught it to me"](./gratitude.md)
 
 <h4>Writing</h4>
 
