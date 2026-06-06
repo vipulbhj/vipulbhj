@@ -42,7 +42,7 @@ Previously helped take InVideo through an AI product pivot and scale post-PMF. B
 
 - [AI-Empowered, Not AI-Enabled](https://variantsystems.io/blog/ai-empowered-not-ai-enabled/) -- the founding thesis
 - [Intuition Is the New Headcount](https://variantsystems.io/blog/intuition-is-the-new-headcount/) -- on the 3-role AI-era team
-- [The Cost of Delegation]([https://variantsystems.io](https://variantsystems.io/blog/cost-of-delegation/)) -- accountability gaps in the agent era
+- [The Cost of Delegation](https://variantsystems.io/blog/cost-of-delegation/) -- accountability gaps in the agent era
 
 ---
 
