@@ -4,7 +4,7 @@ Polyglot founder-engineer. I build things across web, mobile, and AI infrastruct
 
 Founder [Variant Systems](https://variantsystems.io) -- a bootstrapped AI-native consultancy where senior engineers pair-program with AI to deliver what usually takes 3-5x the headcount. We also build our own products, starting with [Postbox](https://usepostbox.com) -- an agent-native form backend for structured inbound workflows.
 
-Previously helped take InVideo through an AI product pivot and scale post-PMF. Before that, grew NativeBase Startup Plus to $300K+ ARR at GeekyAnts.
+Previously helped take InVideo through an AI product pivot and scale post-PMF. Before that, grew NativeBase Startup Plus 0 -> 1 at GeekyAnts.
 
 ---
 
