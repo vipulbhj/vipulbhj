@@ -20,7 +20,7 @@ Previously helped take InVideo through an AI product pivot and scale post-PMF. B
 | Project | What it is |
 |---|---|
 | [MAOP](https://github.com/vipulbhj/maop) | Collaborative multi-agent workflows on a visual canvas, running on a real actor/message-bus runtime |
-| [CHIP8-Toolchain](https://github.com/vipulbhj/chip8-toolchain) | Assembler & emulator in Rust for CHIP8 |
+| [CHIP8-Toolchain]([https://github.com/vipulbhj/chip8-toolchain](https://github.com/vipulbhj/CHIP-8-Toolchain-in-RUST)) | Assembler & emulator in Rust for CHIP8 |
 | [WasmBasic](https://github.com/vipulbhj/wasmbasic) | Rust compiler for a TinyBASIC-inspired language, parser-combinator over WASM backend -- [live playground](https://github.com/vipulbhj/wasmbasic) |
 | [NARF](https://github.com/vipulbhj/narf) | Zero-dependency Node.js web framework with routing, middleware, and templating |
 | [Dynamic App Icons](https://github.com/vipulbhj/dynamic-app-icons) | Expo native module to swap app icons at runtime |
